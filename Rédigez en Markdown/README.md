@@ -75,6 +75,7 @@ Voici le code en Markdown :
 ## Codes source
 ### Bloc de code
 Voici un code en C :
+
     int main()
     {
         printf("Hello world!\n");
@@ -82,7 +83,9 @@ Voici un code en C :
     }
 
 Voici le code en Markdown :
+
 	Voici un code en C :
+
 	    int main()
 	    {
 	        printf("Hello world!\n");
