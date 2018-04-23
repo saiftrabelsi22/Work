@@ -6,11 +6,13 @@ Voici un petit condensé de la syntaxe du Markdown pour vous servir de fiche-mé
 
 ## Paragraphes
 Ceci est un paragraphe de texte.
+
 Ceci est un autre paragraphe de texte !
 
 Voici le code en Markdown :
 
 	Ceci est un paragraphe de texte.
+	
 	Ceci est un autre paragraphe de texte !
 
 
