@@ -9,6 +9,7 @@ Ceci est un paragraphe de texte.
 Ceci est un autre paragraphe de texte !
 
 Voici le code en Markdown :
+
 	Ceci est un paragraphe de texte.
 	Ceci est un autre paragraphe de texte !
 
@@ -18,12 +19,14 @@ Voici le code en Markdown :
 Voici un mot *important* à mon sens
 
 Voici le code en Markdown :
+
 	Voici un mot *important* à mon sens
 
 ### Emphase forte (gras)
 Voici des mots **très importants**, j'insiste !
 
 Voici le code en Markdown :
+
 	Voici des mots **très importants**, j'insiste !
 
 
@@ -32,8 +35,8 @@ Voici le code en Markdown :
 ## Titre de niveau 2
 ### Titre de niveau 3
 
-
 Voici le code en Markdown :
+
 	# Titre de niveau 1
 	## Titre de niveau 2
 	### Titre de niveau 3
@@ -46,6 +49,7 @@ Voici le code en Markdown :
 * Et encore une autre puce !
 
 Voici le code en Markdown :
+
 	* Une puce
 	* Une autre puce
 	* Et encore une autre puce !
@@ -56,6 +60,7 @@ Voici le code en Markdown :
 3. Et de trois
 
 Voici le code en Markdown :
+
 	1. Et de un
 	2. Et de deux
 	3. Et de trois
@@ -67,6 +72,7 @@ Voici le code en Markdown :
 > normal juste en-dessous !
 
 Voici le code en Markdown :
+
 	> Ceci est un texte cité. Vous pouvez répondre
 	> à cette citation en écrivant un paragraphe
 	> normal juste en-dessous !
@@ -75,6 +81,7 @@ Voici le code en Markdown :
 ## Codes source
 ### Bloc de code
 Voici un code en C :
+
     int main()
     {
         printf("Hello world!\n");
@@ -82,7 +89,9 @@ Voici un code en C :
     }
 
 Voici le code en Markdown :
+
 	Voici un code en C :
+
 	    int main()
 	    {
 	        printf("Hello world!\n");
@@ -93,6 +102,7 @@ Voici le code en Markdown :
 La fonction `printf()` permet d'afficher du texte
 
 Voici le code en Markdown :
+
 	La fonction `printf()` permet d'afficher du texte
 
 
@@ -100,6 +110,7 @@ Voici le code en Markdown :
 Rendez-vous sur le [Site du Zéro](http://www.siteduzero.com) pour tout apprendre à partir de Zéro !
 
 Voici le code en Markdown :
+
 	Rendez-vous sur le [Site du Zéro](http://www.siteduzero.com) pour tout apprendre à partir de Zéro !
 
 
@@ -107,6 +118,7 @@ Voici le code en Markdown :
 ![Zozor](http://uploads.siteduzero.com/files/420001_421000/420263.png)
 
 Voici le code en Markdown :
+
 	![Zozor](http://uploads.siteduzero.com/files/420001_421000/420263.png)
 
 
@@ -114,4 +126,5 @@ Voici le code en Markdown :
 -----------------
 
 Voici le code en Markdown :
+
 	-----------------
