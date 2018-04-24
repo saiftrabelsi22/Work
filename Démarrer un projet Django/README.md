@@ -47,4 +47,5 @@ Créer les requirements :
 
 On doit donc obtenir cette architecture :
 
+![Architechture d'un projet django](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9marrer%20un%20projet%20Django/ART/Architecture%20d'un%20projet%20django.PNG)
 
