@@ -33,7 +33,7 @@ Lancer le serveur web local :
 
 	python manage.py runserver
 
-* Ouvrir google à l'url du [serveur local 8000](localhost:8000) et vérifier que cela fonctionne
+* Ouvrir google à l'url du [serveur local 8000](http://127.0.0.1:8000/) et vérifier que cela fonctionne
 * Maintenant que cela fonctionne il faut retourner dans le cmd et faire un CTRL-C
 
 Créer les requirements :
@@ -184,4 +184,4 @@ dans le cmd il faut lancer les comandes suivantes :
 	python manage.py migrate
 	python manage.py runserver
 
-Si tout marche bien rdv à l'url du [serveur local 8000](localhost:8000), cela devrais afficher Hello world ! 
+Si tout marche bien rdv à l'url du [serveur local 8000]( http://127.0.0.1:8000/), cela devrais afficher Hello world ! 
