@@ -13,6 +13,10 @@ Créer un environement virtuel :
 
 	virtualenv Nom_du_projet_env
 
+Activer l'environement virtuel
+
+	C:\Users\Ykhil\Desktop\Nom_du_projet\Nom_du_projet_env\Scripts\activate.bat
+
 Installer django sur l'environement virtuel :
 
 	pip install Django==1.11.4
