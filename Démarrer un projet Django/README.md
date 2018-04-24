@@ -63,7 +63,7 @@ on craient notre application :
 ### Configuration de django
 Dans settings.INSTALLED_APPS il faut ajouter notre application :
 
-	'Nom_de_application.apps.Nom_de_applicationConfig',
+	'Nom_de_application.apps.NomDeApplicationConfig',
 
 Dans settings.LANGUAGE_CODE il faut modifier par :
 
