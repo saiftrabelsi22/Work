@@ -28,7 +28,7 @@ Lancer le serveur web local :
 	python manage.py runserver
 
 
-#### 4 Retourner à l'invité de comande de Ngrok.exe et lancer le serveur !
+#### 4. Retourner à l'invité de comande de Ngrok.exe et lancer le serveur !
 
 Pour lancer le tunel local on utilise la comande suivante :
 
@@ -36,4 +36,10 @@ Pour lancer le tunel local on utilise la comande suivante :
 
 Vous devrer optenir les deux cmd suivant :
 
-![Les cmd](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9marrer%20un%20projet%20Django/ART/Architecture%20d'un%20projet%20django.PNG)
+![Les cmd](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9ploiement%20Django%20sur%20Ngrok/ART/les%20cmd.PNG)
+
+#### 5. Modifier les settings.ALLOWED_HOSTS et ajouter l'url qui nous est donnée par ngrok, dans mon exemple l'url est  `bf7e9d63.ngrok.io`
+
+
+Maintenant aller verifier a l'url donnée par ngrok si votre application est bien en ligne !
+!!! Attention, l'aplication n'est en ligne que temporerement !
