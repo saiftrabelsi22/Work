@@ -18,16 +18,21 @@
 * Ajouter C:\Heroku\bin
 
 4. Se conecter à notre compte heroku, Dans le cmd écrire :
-	
+
+écrire la comande suivante :
+
 	heroku login
 
 5. pour vérifier que tout fonction ecrire (on verra afficher : You have no apps.) :
+
+écrire la comande suivante :
 
 	heroku apps --all
 
 ### Préparation de la mise en production
 
 1. Générer une SECRET_KEY
+
 Ouvrire la console et taper les instruction suivante :
 
 	python
@@ -55,6 +60,7 @@ Tout en bas des settings ajouter :
 5. Retour dans le cmd et l'env et écrire télécharger gunicorn : `pip install gunicorn`
 
 6. créer le fichier requirements.txt dans dans le même dossier que manage.py
+
 il sufit de taper la commande :
 
 	pip freeze > requirements.txt
@@ -66,21 +72,25 @@ Tout ce qui suit sera dans l'env et dans le projet
 * si cela fonctionne on devrais observer l'architercture qui contient le fichier manage.py
 
 2. Ajouter au git les fichier du projet
+
 écrire la comande suivante :
 
 	git add Procfile Nom_du_projet manage.py requirements.txt Mes_apps
 
 3. Lancer un commit
+
 écrire la comande suivante :
 
 	git commit -m "mise en production"
 
-4. Créer une nouvelle application heroku 
+4. Créer une nouvelle application heroku
+
 écrire la comande suivante :
 
 	heroku create Nom_de_application (la meme que le nom de domaine des settings)
 
 5. configurer la nouvelle sercret_kay
+
 écrire la comande suivante :
 	
 	heroku config:set SECRET_KEY="Clé_du_fichier_txt"
@@ -88,6 +98,7 @@ Tout ce qui suit sera dans l'env et dans le projet
 6. verification du fonctionnement en tappant `heroku config` qui devrais renvoyer les variable modifier du serveur
 
 7. Envoyer le projet sur les serveur d'heroku
+
 écrire la comande suivante :
 
 	git push heroku master
@@ -96,11 +107,13 @@ Tout ce qui suit sera dans l'env et dans le projet
 ### Finir la mise en production
 
 1. Lancer les migrations 
+
 écrire la comande suivante :
 
 	heroku run manage.py migrate
 
 2. Créer un superutilisateurs
+
 écrire la comande suivante :
 
 	heroku run manage.py createsuperuser
