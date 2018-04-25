@@ -68,7 +68,7 @@ il sufit de taper la commande :
 ### Création d'un nouveau projet sur Heroku
 
 Tout ce qui suit sera dans l'env et dans le projet
-1. ecrire `git status`
+1. ecrire `git init` puis `git status`
 * si cela fonctionne on devrais observer l'architercture qui contient le fichier manage.py
 
 2. Ajouter au git les fichier du projet
@@ -110,12 +110,12 @@ Tout ce qui suit sera dans l'env et dans le projet
 
 écrire la comande suivante :
 
-	heroku run manage.py migrate
+	heroku run python manage.py migrate
 
 2. Créer un superutilisateurs
 
 écrire la comande suivante :
 
-	heroku run manage.py createsuperuser
+	heroku run python manage.py createsuperuser
 
 -----------------------------
