@@ -1,121 +1,75 @@
-# Déploiement Django sur Linux
+# Déploiement d'une application Django (serveur virtuel de A à Z en hébergement mutualisé)
 
-## Déploiement Django sur heroku
+Nous verrons en détail quels logiciels installer sur Ubuntu, comment configurer Nginx, Gunicorn et lancer des processus sous supervision.
 
-### Instalation d'heroku
+## Memo linux 
 
-1. créer un compte sur [heroku](https://www.heroku.com/) 
-2. installer [heroku cli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)  
-* instaler heroku dans le disque local C.
+## Configurez un espace serveur
 
-3. Modifier les PATHs cmd de windose 10
-* Aller dans le panneau de configuration
-* Aller dans Système et sécurité
-* Aller dans système
-* Aller dans paramétres système avancés
-* Aller dans Variables d'environement
-* Dans varaible système cliquer sur : path
-* Ajouter C:\Heroku\bin
+### Création du serveur
 
-4. Se conecter à notre compte heroku, Dans le cmd écrire :
+1. Créer un compte sur [ovh](https://www.ovh.com/fr/)  
 
-écrire la comande suivante :
+2. Acheter un Cloud vps ssd
+* Virtual Private server SSD
+* VPS 2016 SSD (1vCore/2GO/10GO) (3,99€ HT/mois)
+* Quantité 1
+* localisation en Europe ( de préference en france )
+* Distribution Ubuntu
+* Version Ubuntu 16.04 Server 64bits
+* Language Français
 
-	heroku login
+3. Installer putty
+* télécharger [putty](https://www.commentcamarche.net/download/telecharger-90-putty)
 
-5. pour vérifier que tout fonction ecrire (on verra afficher : You have no apps.) :
+### Aciver le pare-feu (Firewall dans OVH) - [doc](https://docs.ovh.com/fr/dedicated/firewall-network/)
 
-écrire la comande suivante :
+1. Créer un fireWall (retour dans ovh)
+* aller dans la section IP dans la bare de gauche et selectioner l'ipv4 concerné
+* cliquer sur les "..."" et cliquer sur créer un firewall 
 
-	heroku apps --all
+2. maintenant il faut re cliquer sur les "..." et cliquer sur "activer le firewall"
 
-### Préparation de la mise en production
+3. maintenant il faut re cliquer sur les "..." et cliquer sur "Configurer le firewall"
 
-1. Générer une SECRET_KEY
+4. suivre la configuration de l'image ci dessous pour autoriser les protocole http et https
+![Firewall](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9ploiement%20Django%20sur%20Ngrok/ART/les%20cmd.PNG)
 
-Ouvrire la console et taper les instruction suivante :
+### Connexion en SSH
 
-	python
-	import random, string
-	"".join([random.choice(string.printable) for _ in range(24)])
+1. Conexion en SSH grace a putty sur notre serveur
+* prendre l’IPv4 ou le nom de la machine (dans le mail envoyer par ovh)
+* prendre le mot de passe root de la machine (reçu par mail à l’installation).
+* Ouvrir putty et entrer l'IPV4 de son serveur puis cliquer sur 'open'.
+* puis se connecter avec le mot de passe et l'utilisateur root reçu par mail (si cela fonctionne on devrais voir un cmd pour ubuntu s'ouvrir)
 
-*appuyer sur Enter puis copier la nouvelle dans un fichier txt sur votre bureau
+2. Création d'un utilisateur avec des droit restrain à root
 
-2. Modifier les settings
-* modifier `DEBUG = True` par `DEBUG = False`
-* Dans ALLOWED_HOSTS insérer le nom de domaine voullu : `'nomdedomaine.herokuapp.com'`
+ecrire la comande dans le putty :
 
-3. Instaler whitenoise 
-* dans l'env : `pip install whitenoise`
-* dans les Settings.MIDDLEWARE ajouter : `'whitenoise.middleware.WhiteNoiseMiddleware',`
+	adduser nouveau_nom_utilisateur
 
-Tout en bas des settings ajouter :
+* entrer nos nouveu mot de passe et note full name, pour tout le reste faire juste 'enter'.
 
-	if DEBUG == True:
-   		STATICFILES_STORAGE = 'whitenoise.storage.CompresseManifestStaticFilesStorage'
+3. donner des droit plus important au nouveaux utilisateur
 
-4. Créer le Procfile qui dit lance gunicorn et lit le fichier wsgi :
-* écrire : `web: gunicorn Nom_du_projet.wsgi`
+ecrire la comande dans le putty :
 
-5. Retour dans le cmd et l'env et écrire télécharger gunicorn : `pip install gunicorn`
+	gpasswd -a nouveau_nom_utilisateur sudo
 
-6. créer le fichier requirements.txt dans dans le même dossier que manage.py
+4. Changer maintenant pour passer de root a votre nouvelle utilisateur.
 
-il sufit de taper la commande :
+ecrire la comande dans le putty :
 
-	pip freeze > requirements.txt
+ 	su - nouveau_nom_utilisateur
 
-### Création d'un nouveau projet sur Heroku
+5. tapez la commande `pwd` cela devrais afficher : /home/nouveau_nom_utilisateur
 
-Tout ce qui suit sera dans l'env et dans le projet
-1. ecrire `git init` puis `git status`
-* si cela fonctionne on devrais observer l'architercture qui contient le fichier manage.py
+6. on peut maintenant quitter
 
-2. Ajouter au git les fichier du projet
+ecrire la comande dans le putty :
 
-écrire la comande suivante :
+	exit
 
-	git add Procfile Nom_du_projet manage.py requirements.txt Mes_apps
-
-3. Lancer un commit
-
-écrire la comande suivante :
-
-	git commit -m "mise en production"
-
-4. Créer une nouvelle application heroku
-
-écrire la comande suivante :
-
-	heroku create Nom_de_application (la meme que le nom de domaine des settings)
-
-5. configurer la nouvelle sercret_kay
-
-écrire la comande suivante :
+---------------------------
 	
-	heroku config:set SECRET_KEY="Clé_du_fichier_txt"
-
-6. verification du fonctionnement en tappant `heroku config` qui devrais renvoyer les variable modifier du serveur
-
-7. Envoyer le projet sur les serveur d'heroku
-
-écrire la comande suivante :
-
-	git push heroku master
-
-
-### Finir la mise en production
-
-1. Lancer les migrations 
-
-écrire la comande suivante :
-
-	heroku run python manage.py migrate
-
-2. Créer un superutilisateurs
-
-écrire la comande suivante :
-
-	heroku run python manage.py createsuperuser
-
------------------------------
