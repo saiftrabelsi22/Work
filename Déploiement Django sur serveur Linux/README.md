@@ -4,6 +4,9 @@ Nous verrons en détail quels logiciels installer sur Ubuntu, comment configurer
 
 ## Memo linux 
 
+![LinuxInfo](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9ploiement%20Django%20sur%20serveur%20Linux/ART/linux.PNG)
+![CommandeViIfo](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9ploiement%20Django%20sur%20serveur%20Linux/ART/commandevi.PNG)
+
 ## Configurez un espace serveur
 
 ### Création du serveur
@@ -33,7 +36,7 @@ Nous verrons en détail quels logiciels installer sur Ubuntu, comment configurer
 3. maintenant il faut re cliquer sur les "..." et cliquer sur "Configurer le firewall"
 
 4. suivre la configuration de l'image ci dessous pour autoriser les protocole http et https
-![Firewall](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9ploiement%20Django%20sur%20Ngrok/ART/les%20cmd.PNG)
+![Firewall](https://raw.githubusercontent.com/YannickHillion/Work/master/D%C3%A9ploiement%20Django%20sur%20serveur%20Linux/ART/exemple.png)
 
 ### Connexion en SSH
 
@@ -73,3 +76,6 @@ ecrire la comande dans le putty :
 
 ---------------------------
 	
+## Téléchargez l'application sur le serveur distant
+
+(Suite demain)
